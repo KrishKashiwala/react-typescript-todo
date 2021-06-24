@@ -19,7 +19,7 @@ export interface todoListInterface{
 // todo Item
 export interface todoItemInterface{
 	handleTodoUpdate : (event : React.ChangeEvent<HTMLInputElement>  , id : string) => void,
-	handleTodoRemove : (id : string) => void,
+	handleTodoRemove : (id : string) => void | undefined,
 	handleTodoComplete : (id : string) => void,
 	todo : todoInterface
 }

@@ -22,13 +22,11 @@ const App : React.FC = () => {
   }
 
   // Remove todo
- function handleTodoRemove(id: string) {
- 
- const newTodosState: todoInterface[] = todos.filter((todo: todoInterface) => todo.id === id)
- 
- setTodos(newTodosState)
- }
-
+  const handleTodoRemove = (id : string) => {
+    const newTodoState : todoInterface[] = todos.filter((todo:todoInterface) => todo.id !== id) 
+    setTodos(newTodoState)
+    
+  }
  // checking todo is completed or not. 
    function handleTodoComplete(id: string) {
  
