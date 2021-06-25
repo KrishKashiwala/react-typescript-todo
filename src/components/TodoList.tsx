@@ -7,7 +7,7 @@ const TodoList = (props : todoListInterface) => {
 			<ul>
 				{
 					props.todos.map(todo => (
-						<li key = {todo.id}>
+						<li style = {{listStyle : "none"}} key = {todo.id}>
 							<TodoItem 
 							todo = {todo}
 							handleTodoComplete = {props.handleTodoComplete}

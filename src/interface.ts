@@ -23,3 +23,18 @@ export interface todoItemInterface{
 	handleTodoComplete : (id : string) => void,
 	todo : todoInterface
 }
+
+// fetch api example 
+
+export interface fetchApi{
+	
+	postId : number | undefined,
+	id : number| undefined,
+	name : string| undefined,
+	body : string| undefined,
+	email : string| undefined
+	
+}
+ export interface propsData{
+	data : fetchApi[]
+ }

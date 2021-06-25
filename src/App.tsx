@@ -1,10 +1,11 @@
-import React , {useState} from 'react';
+import React , {useState , useEffect} from 'react';
+import {fetchApi} from './interface'
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
 import { todoInterface } from './interface';
 import './App.css';
-
-const App : React.FC = () => {
+import FetchApi from './FetchApi'
+const App  = () => {
   const [todos ,  setTodos]  = useState<todoInterface[]>([])
 
   // Creating new todo...
@@ -35,6 +36,22 @@ const App : React.FC = () => {
     newTodoState.find((todo: todoInterface) => todo.id === id)!.isCompleted = !newTodoState.find((todo: todoInterface) => todo.id === id)!.isCompleted
     setTodos(newTodoState)
  }
+
+
+
+ /// fake data api fetch ......
+  const returnData = async  () => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/comments')
+    const data = await response.json()
+    setFakeData(data)
+  } 
+
+	const [fakeData , setFakeData] = useState<fetchApi[]>([])
+  
+	useEffect(() => {
+    returnData()
+	},[])
+  console.log(fakeData)
   return(
     <div className="App">
       <React.Fragment>
@@ -46,7 +63,10 @@ const App : React.FC = () => {
 							handleTodoRemove = {handleTodoRemove}
 							handleTodoUpdate = {handleTodoUpdate}
               />
+        <FetchApi data = {fakeData} /> 
       </React.Fragment>
+
+      
     </div>
   )
 }
