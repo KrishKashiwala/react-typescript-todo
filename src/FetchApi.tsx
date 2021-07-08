@@ -1,4 +1,3 @@
-import React   from 'react'
 import { propsData} from './interface'
 const FetchApi =  (props : propsData ) => {
 	return(
